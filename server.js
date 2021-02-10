@@ -15,7 +15,7 @@ app.use(express.static('static/public'));
 
 app.use((req, res, ) => {
     var img = '<img src= "/images/kat.jpg"/>';
-    res.send('<h1>404</h1>' + img);
+    res.status(404).send('<h1>404 page not found</h1>' + img);
 });
 
 app.listen(port, () => {
