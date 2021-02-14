@@ -3,12 +3,14 @@ const port = 1900;
 const app = express();
 const path = require('path');
 
+app.set('view engine', 'ejs');
+
 app.get('/', (req, res) => {
-    res.send('<h1>Hello world!</h1>');
+    res.render('pages/index');
 });
 
 app.get('/profile', (req, res) => {
-    res.sendFile(path.join(__dirname, 'static/public', 'index.html'));
+    res.render('pages/profile');
 });
 
 app.use(express.static('static/public'));
