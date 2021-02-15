@@ -3,17 +3,17 @@ const port = 1900;
 const app = express();
 const path = require('path');
 
+app.use(express.static('static/public'));
+
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
     res.render('pages/index');
 });
 
-app.get('/profile', (req, res) => {
-    res.render('pages/profile');
+app.get('/profile/:userName', (req, res) => {
+    res.render('pages/profile', { data: { userName: req.params.userName } });
 });
-
-app.use(express.static('static/public'));
 
 app.use((req, res, ) => {
     var img = '<img src= "/images/kat.jpg"/>';
