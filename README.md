@@ -7,13 +7,28 @@ The app is meant to help you find capable teammates for the games you play, rath
 
 ## installing
 
-In order to use the app you should run the following commands  
+In order to use this repository on your local device you should first clone it using the following link:  
 
+`https://github.com/Kip-Hub/matching-app.git`  
+
+
+After which you should install npm on your local device by running this code in your terminal:   
+
+`npm install`  
+
+Now for the dependancies that are used to run the project:
+
+`npm install ...`   
+`npm install ...`  
 `npm install ...`  
 
-Followed by 
 
-`npm install ...`
+## Run scripts
+
+When succesfully installed the following scripts can be used:  
+
+`npm start` 
+
 
 ## Built with
 
