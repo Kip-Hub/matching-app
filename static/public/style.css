@@ -1,7 +1,67 @@
 * {
     margin: 0;
+    box-sizing: border-box;
+}
+
+body {
     background-color: #242525;
-    font-family: sans-serif;
     color: white;
+    position: relative;
+    font-family: 'Lato', sans-serif;
+}
+
+main {
+    background-image: url("../images/background.jpg");
+    /*image source: Sabri Tuzcu on Unsplash - https://unsplash.com/photos/Xi2aqNQB5P8  */
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80%;
+}
+
+.root h1 {
+    font-family: 'Thasadith', sans-serif;
+    font-size: 2.8em;
     text-align: center;
+    padding-top: 2em;
+}
+
+body form {
+    text-align: left;
+    width: 30%;
+    display: grid;
+    flex-direction: row;
+    margin-left: 0.5em;
+    background-color: rgba(228, 228, 228, 0.8);
+    position: absolute;
+    margin-top: 6em;
+    left: 35%;
+    padding: 1em;
+    border-radius: 1em;
+}
+
+form label {
+    padding-bottom: 0.2em;
+    font-size: 1em;
+    color: rgb(32, 32, 32);
+}
+
+form input[type=text],
+form select {
+    padding: 0.5em;
+    margin-top: 0.2em;
+    margin-bottom: 1em;
+    border-radius: 0.6em;
+    border: 0em;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+    appearance: none;
+}
+
+form input[type=submit] {
+    padding: 0.5em;
+    border: 0em;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+    border-radius: 0.6em;
+    background-color: rgb(90, 109, 194);
+    color: white;
 }

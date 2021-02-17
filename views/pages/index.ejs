@@ -3,9 +3,30 @@
 <head>
     <%- include('../partials/head'); %>
 </head>
+<header>
+    <%- include('../partials/header'); %>
+</header>
 
-<body>
-    <h1>Find capable teammates to play games with!</h1>
+<body class="root">
+    <main>
+        <h1>Find capable teammates to play games with</h1>
+        <form action="/" method="POST">
+            <label for="game">Which game do you play?</label>
+            <input type="text" name="game">
+            <label for="platform">Which platform do you play on?</label>
+            <select name="platform">
+                <option value="pc" >pc</option>
+                <option value="xbox">xbox</option>
+                <option value="ps4">ps4</option>
+            </select>
+            <label for="rank">What is your current rank?</label>
+            <input type="text" name="rank">
+            <input class="formButton" type="submit" value="submit">
+        </form>
+    </main>
 </body>
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
 
 </html>
