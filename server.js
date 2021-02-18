@@ -4,7 +4,17 @@ const slug = require('slug');
 const port = 1900;
 const app = express();
 const path = require('path');
+const MongoClient = require('mongodb').MongoClient;
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
+
+require('dotenv').config()
+
+const url = 'mongodb+srv://' + process.env.DB_USER + ':' + process.env.DB_PASS + '@' + process.env.DB_HOST + '/' + process.env.DB_NAME + '?retryWrites=true&w=majority';
+
+MongoClient.connect(url, { useUnifiedTopology: true }, function(err, client) {
+    if (err) throw err
+    else console.log('Database connected?')
+})
 
 app.use(express.static('static/public'));
 

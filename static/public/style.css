@@ -32,7 +32,7 @@ body form {
     display: grid;
     flex-direction: row;
     margin-left: 0.5em;
-    background-color: rgba(228, 228, 228, 0.8);
+    background-color: rgba(228, 228, 228, 0.6);
     position: absolute;
     margin-top: 6em;
     left: 35%;
