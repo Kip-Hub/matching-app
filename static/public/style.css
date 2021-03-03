@@ -3,6 +3,37 @@
     box-sizing: border-box;
 }
 
+nav {
+    background-color: rgb(58, 58, 58);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    height: 2.5em;
+    padding: 0.5em;
+}
+
+nav li {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.2em;
+    line-height: 1em;
+    margin-right: 1em;
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(216, 216, 216);
+}
+
+nav li:last-of-type {
+    margin-left: 80%;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
 body {
     background-color: #242525;
     color: white;
@@ -19,7 +50,7 @@ main {
     height: 80%;
 }
 
-.root h1 {
+.main h1 {
     font-family: 'Thasadith', sans-serif;
     font-size: 2.8em;
     text-align: center;

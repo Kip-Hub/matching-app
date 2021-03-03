@@ -40,9 +40,14 @@ app.post('/', urlencodedParser, (req, res) => {
     res.render('pages/result', { data: req.body });
 });
 
-app.get('/profile/:userName', (req, res) => {
-    res.render('pages/profile', { data: { userName: req.params.userName } });
+// app.get('/profile/:userName', (req, res) => {
+//     res.render('pages/profile', { data: { userName: req.params.userName } });
+// });
+
+app.get('/myprofile/', (req, res) => {
+    res.render('pages/myprofile');
 });
+
 
 app.get('*', (req, res, ) => {
     var img = '<img src= "/images/kat.jpg"/>';
