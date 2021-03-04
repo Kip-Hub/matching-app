@@ -3,9 +3,7 @@ const bodyParser = require('body-parser');
 const slug = require('slug');
 const port = 1900;
 const app = express();
-const path = require('path');
-const MongoClient = require('mongodb').MongoClient;
-var mongo = require('mongodb');
+const { MongoClient } = require("mongodb");
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 require('dotenv').config()
@@ -21,23 +19,25 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', urlencodedParser, (req, res) => {
-    MongoClient.connect(url, { useUnifiedTopology: true }, function(err, client) {
+    MongoClient.connect(url, { useUnifiedTopology: true }, function(err, MongoClient) {
         if (err) {
             throw err
         } else {
-            const db = client.db(process.env.DB_NAME);
+            const db = MongoClient.db(process.env.DB_NAME);
             const collection = db.collection(process.env.DB_COLL);
             collection.find({}).toArray(function(err, result) {
                 if (err) {
                     throw err
                 } else {
                     console.log(result);
+                    const resultString = JSON.stringify(result);
+                    res.render('pages/result', { resultString });
                 }
             });
         }
     })
 
-    res.render('pages/result', { data: req.body });
+
 });
 
 app.get('/profile', (req, res) => {
