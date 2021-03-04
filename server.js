@@ -1,14 +1,22 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const slug = require('slug');
 const port = 1900;
 const app = express();
-const { MongoClient } = require("mongodb");
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
-
 require('dotenv').config()
+const { MongoClient } = require("mongodb");
+const url = 'mongodb+srv://' + process.env.DB_USER + ':' + process.env.DB_PASS + '@' + process.env.DB_HOST + '?retryWrites=true&w=majority';
+const client = new MongoClient(url, { useUnifiedTopology: true });
 
-const url = 'mongodb+srv://' + process.env.DB_USER + ':' + process.env.DB_PASS + '@' + process.env.DB_HOST + '/' + process.env.DB_NAME + '?retryWrites=true&w=majority';
+async function mongoConnect() {
+    try {
+        await client.connect()
+        console.log("Connected to mongodb")
+    } catch (err) {
+        console.log(err)
+    }
+}
+mongoConnect();
 
 app.use(express.static('static/public'));
 
@@ -19,25 +27,18 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', urlencodedParser, (req, res) => {
-    MongoClient.connect(url, { useUnifiedTopology: true }, function(err, MongoClient) {
+    const db = client.db(process.env.DB_NAME);
+    const users = db.collection(process.env.DB_COLL);
+
+    users.find({}).toArray((err, result) => {
         if (err) {
             throw err
         } else {
-            const db = MongoClient.db(process.env.DB_NAME);
-            const collection = db.collection(process.env.DB_COLL);
-            collection.find({}).toArray(function(err, result) {
-                if (err) {
-                    throw err
-                } else {
-                    console.log(result);
-                    const resultString = JSON.stringify(result);
-                    res.render('pages/result', { resultString });
-                }
-            });
+            console.log(result);
+            const resultString = JSON.stringify(result);
+            res.render('pages/result', { resultString });
         }
     })
-
-
 });
 
 app.get('/profile', (req, res) => {
