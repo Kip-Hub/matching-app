@@ -57,7 +57,7 @@ main {
     padding-top: 2em;
 }
 
-body form {
+.main form {
     text-align: left;
     width: 30%;
     display: grid;
@@ -71,7 +71,7 @@ body form {
     border-radius: 1em;
 }
 
-form label {
+.main form label {
     padding-bottom: 0.2em;
     font-size: 1em;
     color: rgb(32, 32, 32);
@@ -95,4 +95,59 @@ form input[type=submit] {
     border-radius: 0.6em;
     background-color: rgb(90, 109, 194);
     color: white;
+}
+
+.profile h1 {
+    font-size: 2em;
+    padding-top: 0.5em;
+    padding-left: 2.5em;
+    padding-bottom: 0.5em;
+}
+
+.profile section:first-of-type {
+    display: grid;
+    grid-template-columns: 12em 1fr;
+    padding: 1em;
+    margin-right: 5em;
+    margin-left: 5em;
+    background-color: rgba(172, 172, 172, 0.6);
+}
+
+.profile section:first-of-type img {
+    max-width: 10em;
+    grid-row-start: span 6;
+}
+
+.profile section:nth-of-type(2) {
+    margin-top: 1em;
+    display: grid;
+    grid-template-columns: 12em 1fr;
+    padding: 1em;
+    margin-right: 5em;
+    margin-left: 5em;
+    background-color: rgba(172, 172, 172, 0.6);
+}
+
+.profile form button {
+    padding: 0.5em;
+    border: 0em;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+    border-radius: 0.6em;
+    background-color: rgb(90, 109, 194);
+    color: white;
+    margin-top: 1em;
+    width: 5em;
+    right: 6em;
+    position: absolute;
+}
+
+.profile form input[type=text] {
+    width: 25em;
+    height: 1.7em;
+}
+
+.profile form input[type=submit] {
+    position: absolute;
+    left: 48%;
+    margin-top: 2em;
 }
