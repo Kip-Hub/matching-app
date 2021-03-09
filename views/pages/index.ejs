@@ -10,21 +10,26 @@
 <body class="main">
     <main>
         <h1>Find capable teammates to play games with</h1>
-        <form action="/" method="POST">
+        <form action="" method="POST">
             <label for="game">Which game do you play?</label>
             <select name="game">
                 <option value="Counter Strike Global Offensive" >Counter Strike</option>
                 <option value="Valorant">Valorant</option>
-                <option value="Rainbow six siege">Rainbow six siege</option>
+                <option value="Rainbow Six Siege">Rainbow Six Siege</option>
+                <option value="Rocket League">Rocket League</option>
+                <option value="Apex Legends">Apex Legends</option>
             </select>
             <label for="platform">Which platform do you play on?</label>
             <select name="platform">
-                <option value="pc" >pc</option>
-                <option value="xbox">xbox</option>
-                <option value="ps4">ps4</option>
+                <option value="PC" >PC</option>
+                <option value="Xbox">Xbox</option>
+                <option value="PS4">PS4</option>
             </select>
-            <label for="rank">What is your current rank?</label>
-            <input type="text" name="rank">
+            <label for="rank">What kind of player are you?</label>
+            <select name="playertype">
+                <option value="Casual">Casual</option>
+                <option value="Competitive" >Competitive</option>
+            </select>
             <input class="formButton" type="submit" value="submit">
         </form>
     </main>

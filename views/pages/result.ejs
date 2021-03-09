@@ -7,13 +7,49 @@
     <%- include('../partials/header'); %>
 </header>
 
-<body>
+<body class="result">
+    <% users.forEach((users)=>{%>
+        <h1>This user matches your criteria</h1>
+        <section>
+            <img src="../images/profile_picture.jpg" alt="picture of user">
+            <h3>Name</h3>
+            <p>
+                <%= users.name %>
+            </p>
+            <h3>Nationality</h3>
+            <p>
+                <%= users.nationality %>
+            </p>
+            <h3>Age</h3>
+            <p>
+                <%= users.age %>
+            </p>
+        </section>
 
-    <h1>
-        User:
-    </h1>
-    <%= resultString %>
+        <section>
+            <h3>Games</h3>
+            <p>
+                <%= users.game %>
+            </p>
+            <h3>Type of player</h3>
+            <p>
+                <%= users.playertype %>
+            </p>
+            <h3>Platform</h3>
+            <p>
+                <%= users.platform %>
+            </p>
+            <h3>Rank</h3>
+            <p>
+                <%= users.rank %>
+            </p>
+        </section>
 
+        <section>
+            <button><img src="../images/dislike_icon.png" alt=""></button>
+            <button><img src="../images/fav_icon.png" alt=""></button>
+        </section>
+        <%})%>
 </body>
 
 </html>

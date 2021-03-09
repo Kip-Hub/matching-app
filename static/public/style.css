@@ -4,7 +4,8 @@
 }
 
 nav {
-    background-color: rgb(58, 58, 58);
+    background-color: rgba(58, 58, 58);
+    width: 100%;
 }
 
 nav ul {
@@ -27,7 +28,8 @@ nav a {
 }
 
 nav li:last-of-type {
-    margin-left: 80%;
+    position: absolute;
+    right: 0;
 }
 
 nav a:hover {
@@ -47,7 +49,7 @@ main {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 80%;
+    height: 90%;
 }
 
 .main h1 {
@@ -97,7 +99,8 @@ form input[type=submit] {
     color: white;
 }
 
-.profile h1 {
+.profile h1,
+.result h1 {
     font-size: 2em;
     padding-top: 0.5em;
     padding-left: 2.5em;
@@ -121,11 +124,12 @@ form input[type=submit] {
 .profile section:nth-of-type(2) {
     margin-top: 1em;
     display: grid;
-    grid-template-columns: 12em 1fr;
+    grid-template-columns: 11em 1fr;
     padding: 1em;
     margin-right: 5em;
     margin-left: 5em;
     background-color: rgba(172, 172, 172, 0.6);
+    grid-gap: 1em;
 }
 
 .profile form button {
@@ -150,4 +154,55 @@ form input[type=submit] {
     position: absolute;
     left: 48%;
     margin-top: 2em;
+}
+
+.result section:last-of-type button {
+    position: absolute;
+    margin-top: 1em;
+    padding: 0.5em;
+    border: 0em;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+    border-radius: 50%;
+    background-color: rgb(90, 109, 194);
+    color: white;
+    min-width: 7em;
+    min-height: 7em;
+}
+
+.result section:first-of-type img {
+    max-width: 10em;
+    grid-row-start: span 6;
+}
+
+.result section:first-of-type {
+    display: grid;
+    grid-template-columns: 12em 1fr;
+    padding: 1em;
+    margin-right: 5em;
+    margin-left: 5em;
+    background-color: rgba(172, 172, 172, 0.6);
+}
+
+.result section:nth-of-type(2) {
+    margin-top: 1em;
+    display: grid;
+    grid-template-columns: 20em 1fr;
+    padding: 1em;
+    margin-right: 5em;
+    margin-left: 5em;
+    background-color: rgba(172, 172, 172, 0.6);
+    grid-gap: 1em;
+}
+
+.result section:last-of-type button:first-of-type {
+    left: 35%;
+    background-color: rgb(73, 73, 73);
+}
+
+.result section:last-of-type button:last-of-type {
+    right: 35%;
+}
+
+.profile form select {
+    max-width: 25em;
 }

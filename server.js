@@ -30,20 +30,33 @@ app.get('/', (req, res) => {
 app.post('/', urlencodedParser, (req, res) => {
     const db = client.db(process.env.DB_NAME);
     const users = db.collection(process.env.DB_COLL);
+    const query = {
+        game: req.body.game,
+        platform: req.body.platform,
+        playertype: req.body.playertype
+    };
 
-    users.find({}).toArray((err, result) => {
+    users.find(query).toArray((err, result) => {
         if (err) {
             throw err
         } else {
-            console.log(result);
-            const resultString = JSON.stringify(result);
-            res.render('pages/result', { resultString });
+            res.render('pages/result', { users: result });
         }
     })
 });
 
 app.get('/profile', (req, res) => {
-    res.render('pages/profile');
+    const db = client.db(process.env.DB_NAME);
+    const users = db.collection(process.env.DB_COLL);
+    const id = { _id: ObjectId("60457d71f75d0ee05a6618fd") };
+
+    users.find(id).toArray((err, result) => {
+        if (err) {
+            throw err
+        } else {
+            res.render('pages/profile', { users: result });
+        }
+    })
 });
 
 app.get('/edit', (req, res) => {
@@ -58,23 +71,27 @@ app.post('/edit', urlencodedParser, (req, res) => {
         $set: {
             name: req.body.name,
             nationality: req.body.nationality,
-            age: req.body.age
+            age: req.body.age,
+            game: req.body.game,
+            playertype: req.body.playertype,
+            platform: req.body.platform,
+            rank: req.body.rank
         }
     };
-
-    const details = {
-        name: req.body.name,
-        nationality: req.body.nationality,
-        age: req.body.age
-    }
 
     const filter = { _id: ObjectId("60457d71f75d0ee05a6618fd") };
     const options = { upsert: true };
 
-    users.updateOne(filter, document, options), (err) => {
-        console.log("user updated");
-    };
-    res.render('pages/profile', { details: details });
+    users.updateOne(filter, document, options);
+
+    users.find(filter).toArray((err, result) => {
+        if (err) {
+            throw err
+        } else {
+            res.render('pages/profile', { users: result });
+        }
+    })
+
 });
 
 app.get('*', (req, res, ) => {
