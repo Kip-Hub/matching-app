@@ -109,7 +109,7 @@ app.post('/edit', urlencodedParser, (req, res) => {
 
 // handles any non existing paths, and shows a 404 page
 app.get('*', (req, res, ) => {
-
+    var img = '<img src= "/images/kat.jpg"/>';
     res.status(404).send('<h1>404 page not found</h1>' + img);
 });
 
