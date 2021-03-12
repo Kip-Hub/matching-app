@@ -43,7 +43,7 @@ When succesfully installed the following script can be used to start the project
 npm start
 ```
 
-## Run scripts
+## Database
 
 The image below shows what the database structure should look like in MongoDB
 
