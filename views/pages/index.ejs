@@ -13,6 +13,7 @@
         <form action="" method="POST">
             <label for="game">Which game do you play?</label>
             <select name="game">
+                <option value="" disabled selected>Select a game</option>
                 <option value="Counter Strike Global Offensive" >Counter Strike</option>
                 <option value="Valorant">Valorant</option>
                 <option value="Rainbow Six Siege">Rainbow Six Siege</option>
@@ -21,16 +22,19 @@
             </select>
             <label for="platform">Which platform do you play on?</label>
             <select name="platform">
+                <option value="" disabled selected>Select a platform</option>
                 <option value="PC" >PC</option>
                 <option value="Xbox">Xbox</option>
                 <option value="PS4">PS4</option>
             </select>
             <label for="rank">What kind of player are you?</label>
             <select name="playertype">
+                <option value="" disabled selected>Select playstyle</option>
                 <option value="Casual">Casual</option>
                 <option value="Competitive" >Competitive</option>
             </select>
-            <input class="formButton" type="submit" value="submit">
+            <p></p>
+            <input type="submit" value="Search for players">
         </form>
     </main>
 </body>

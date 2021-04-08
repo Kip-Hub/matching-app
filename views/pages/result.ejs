@@ -8,48 +8,36 @@
 </header>
 
 <body class="result">
-    <% users.forEach((users)=>{%>
+    <%  if (typeof users == 'object' && users) { %>
+        <% users.forEach((users)=>{ %>
         <h1>This user matches your criteria</h1>
         <section>
             <img src="../images/profile_picture.jpg" alt="picture of user">
             <h3>Name</h3>
-            <p>
-                <%= users.name %>
-            </p>
+            <p> <%= users.name %> </p>
             <h3>Nationality</h3>
-            <p>
-                <%= users.nationality %>
-            </p>
+            <p> <%= users.nationality %> </p>
             <h3>Age</h3>
-            <p>
-                <%= users.age %>
-            </p>
+            <p> <%= users.age %> </p>
         </section>
-
         <section>
             <h3>Games</h3>
-            <p>
-                <%= users.game %>
-            </p>
+            <p> <%= users.game %> </p>
             <h3>Type of player</h3>
-            <p>
-                <%= users.playertype %>
-            </p>
+            <p> <%= users.playertype %> </p>
             <h3>Platform</h3>
-            <p>
-                <%= users.platform %>
-            </p>
+            <p> <%= users.platform %> </p>
             <h3>Rank</h3>
-            <p>
-                <%= users.rank %>
-            </p>
+            <p> <%= users.rank %> </p>
         </section>
-
         <section>
-            <button><img src="../images/dislike_icon.png" alt=""></button>
+            <button class="dislikeButton"><img src="../images/dislike_icon.png" alt=""></button>
             <button><img src="../images/fav_icon.png" alt=""></button>
         </section>
         <%})%>
+    <% } else {%>
+        <p>no user found</p>
+    <% } %>
 </body>
 
 </html>

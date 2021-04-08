@@ -79,13 +79,17 @@ main {
     color: rgb(32, 32, 32);
 }
 
+.main form p {
+    color: rgb(160, 20, 20);
+}
+
 form input[type=text],
 form select {
     padding: 0.5em;
     margin-top: 0.2em;
     margin-bottom: 1em;
     border-radius: 0.6em;
-    border: 0em;
+    border: none;
     box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
     appearance: none;
 }
@@ -97,6 +101,13 @@ form input[type=submit] {
     border-radius: 0.6em;
     background-color: rgb(90, 109, 194);
     color: white;
+    transition: background-color 0.2s;
+}
+
+form input[type=submit]:hover,
+.profile form button:hover {
+    cursor: pointer;
+    background-color:rgb(96, 158, 252);;
 }
 
 .profile h1,
@@ -114,6 +125,7 @@ form input[type=submit] {
     margin-right: 5em;
     margin-left: 5em;
     background-color: rgba(172, 172, 172, 0.6);
+    border-radius: 0.5em;
 }
 
 .profile section:first-of-type img {
@@ -130,6 +142,7 @@ form input[type=submit] {
     margin-left: 5em;
     background-color: rgba(172, 172, 172, 0.6);
     grid-gap: 1em;
+    border-radius: 0.5em;
 }
 
 .profile form button {
@@ -143,6 +156,7 @@ form input[type=submit] {
     width: 5em;
     right: 6em;
     position: absolute;
+    transition: background-color 0.2s;
 }
 
 .profile form input[type=text] {
@@ -163,7 +177,6 @@ form input[type=submit] {
     border: 0em;
     box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
     border-radius: 50%;
-    background-color: rgb(90, 109, 194);
     color: white;
     min-width: 7em;
     min-height: 7em;
@@ -181,6 +194,7 @@ form input[type=submit] {
     margin-right: 5em;
     margin-left: 5em;
     background-color: rgba(172, 172, 172, 0.6);
+    border-radius: 0.5em;
 }
 
 .result section:nth-of-type(2) {
@@ -192,15 +206,29 @@ form input[type=submit] {
     margin-left: 5em;
     background-color: rgba(172, 172, 172, 0.6);
     grid-gap: 1em;
+    border-radius: 0.5em;
 }
 
 .result section:last-of-type button:first-of-type {
     left: 35%;
     background-color: rgb(73, 73, 73);
+    transition: background-color 0.2s;
 }
 
 .result section:last-of-type button:last-of-type {
     right: 35%;
+    background-color: rgb(90, 109, 194);
+    transition: background-color 0.2s;
+}
+
+.result section:last-of-type button:first-of-type:hover {
+    background-color:rgb(160, 20, 20);
+    cursor: pointer;
+}
+
+.result section:last-of-type button:last-of-type:hover {
+    background-color:rgb(96, 158, 252);
+    cursor: pointer;
 }
 
 .profile form select {

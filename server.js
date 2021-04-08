@@ -10,6 +10,7 @@ const client = new MongoClient(url, { useUnifiedTopology: true });
 const ObjectId = require("mongodb").ObjectID;
 
 
+
 // Database connection with MongoDB
 async function mongoConnect() {
     try {
@@ -36,18 +37,24 @@ app.get('/', (req, res) => {
 app.post('/', urlencodedParser, (req, res) => {
     const db = client.db(process.env.DB_NAME);
     const users = db.collection(process.env.DB_COLL);
+    
     const query = {
         game: req.body.game,
         platform: req.body.platform,
         playertype: req.body.playertype
     };
+    
 
     // Find result matching the submitted criteria
     users.find(query).toArray((err, result) => {
         if (err) {
             throw err
-        } else {
-            res.render('pages/result', { users: result });
+        } else { 
+            if (result != '') {
+                res.render('pages/result', { users: result });
+            } else {
+                res.render('pages/result');              
+            }
         }
     })
 });
@@ -56,7 +63,7 @@ app.post('/', urlencodedParser, (req, res) => {
 app.get('/profile', (req, res) => {
     const db = client.db(process.env.DB_NAME);
     const users = db.collection(process.env.DB_COLL);
-    const id = { _id: ObjectId("60457d71f75d0ee05a6618fd") };
+    const id = { _id: ObjectId("606e341bbd4da96da0f18f15") };
 
     // Find and show the user who is "logged in"
     users.find(id).toArray((err, result) => {
@@ -84,17 +91,19 @@ app.post('/edit', urlencodedParser, (req, res) => {
             nationality: req.body.nationality,
             age: req.body.age,
             game: req.body.game,
-            playertype: req.body.playertype,
             platform: req.body.platform,
-            rank: req.body.rank
+            rank: req.body.rank,
+            playertype: req.body.playertype,
         }
     };
 
-    const filter = { _id: ObjectId("60457d71f75d0ee05a6618fd") };
+    const filter = { _id: ObjectId("606e341bbd4da96da0f18f15") };
     const options = { upsert: true };
-
+    
+    if (req.body.name  != '' & req.body.game != 'undefined') {
     // updates the existing data to the newly submitted data
-    users.updateOne(filter, document, options);
+        users.updateOne(filter, document, options);
+    }
 
     // renders the updated profile afterwards
     users.find(filter).toArray((err, result) => {
@@ -104,12 +113,11 @@ app.post('/edit', urlencodedParser, (req, res) => {
             res.render('pages/profile', { users: result });
         }
     })
-
 });
 
 // handles any non existing paths, and shows a 404 page
 app.get('*', (req, res, ) => {
-    var img = '<img src= "/images/kat.jpg"/>';
+    const img = '<img src= "/images/kat.jpg"/>';
     res.status(404).send('<h1>404 page not found</h1>' + img);
 });
 

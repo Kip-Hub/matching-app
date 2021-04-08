@@ -12,7 +12,6 @@
     <form action="" method="POST">
         <section>
             <img src="../images/profile_picture.jpg" alt="picture of user">
-            <!-- <input type="file" name="profilepic"> -->
             <label for="name">Name</label>
             <input type="text" name="name">
             <label for="nationality">Nationality</label>
@@ -23,22 +22,25 @@
         <section>
             <label for="game">Games</label>
             <select name="game">
+                <option value="" disabled selected>Select a game</option>
                 <option value="Counter Strike Global Offensive" >Counter Strike</option>
                 <option value="Valorant">Valorant</option>
                 <option value="Rainbow Six Siege">Rainbow Six Siege</option>
                 <option value="Rocket League">Rocket League</option>
                 <option value="Apex Legends">Apex Legends</option>
             </select>
-            <label for="playertype">Type of player</label>
-            <select name="playertype">
-                <option value="Competitive" >Competitive</option>
-                <option value="Casual">Casual</option>
-            </select>
             <label for="platform">Platform</label>
             <select name="platform">
+                <option value="" disabled selected>Select a platform</option>
                 <option value="PC" >PC</option>
                 <option value="Xbox">Xbox</option>
                 <option value="PS4">PS4</option>
+            </select>
+            <label for="playertype">Type of player</label>
+            <select name="playertype">
+                <option value="" disabled selected>Select playstyle</option>
+                <option value="Competitive" >Competitive</option>
+                <option value="Casual">Casual</option>
             </select>
             <label for="rank">Rank</label>
             <input type="text" name="rank">
